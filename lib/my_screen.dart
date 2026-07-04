@@ -43,7 +43,7 @@ class _MyScreenState extends State<MyScreen> {
         itemCount: students.length,
           itemBuilder: (context, index) {
             return ListTile(
-              tileColor: students[index]["dept"] == "CSE" ? Colors.orange : Colors.teal,
+              tileColor: index%2 == 0  ? Colors.orange : Colors.teal,
               leading: CircleAvatar(
                 child: Text("${students[index]["id"]}"),
               ),
