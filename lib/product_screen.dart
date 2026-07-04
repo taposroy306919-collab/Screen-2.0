@@ -9,6 +9,99 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+
+  List p =[
+    {
+      "id": 1,
+      "name": "Classic Cotton T-Shirt",
+      "brand": "EasyWear",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMoPtmSY8ONr6j3jdcjmJME53oOkrwQTYUxudqKpN6Yf1hyGasi-_FvYI&s=10",
+      "regular_price": 799,
+      "sale_price": 649
+    },
+    {
+      "id": 2,
+      "name": "Oversized Graphic T-Shirt",
+      "brand": "Urban Style",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy2galtw_kLVREPAY_PEOhPPVDiwEwPCecsvjnIAx4Rd7evK-dsHp1TPU&s=10",
+      "regular_price": 999,
+      "sale_price": 849
+    },
+    {
+      "id": 3,
+      "name": "Polo T-Shirt",
+      "brand": "Polo Club",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPkg1kFDq0L0eygN4S18ApsE-2vD0mJEuhhVFNz7bCg8FqMa4AaRqlMHL&s=10",
+      "regular_price": 1299,
+      "sale_price": 1099
+    },
+    {
+      "id": 4,
+      "name": "Round Neck T-Shirt",
+      "brand": "Fashion Hub",
+      "category": "T-Shirt",
+      "image": "https://wrogn.com/cdn/shop/files/WUTS1214S_1.jpg?v=1754396693",
+      "regular_price": 699,
+      "sale_price": 599
+    },
+    {
+      "id": 5,
+      "name": "V-Neck T-Shirt",
+      "brand": "StyleFit",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMoPtmSY8ONr6j3jdcjmJME53oOkrwQTYUxudqKpN6Yf1hyGasi-_FvYI&s=10",
+      "regular_price": 899,
+      "sale_price": 749
+    },
+    {
+      "id": 6,
+      "name": "Full Sleeve T-Shirt",
+      "brand": "Denim Co.",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPkg1kFDq0L0eygN4S18ApsE-2vD0mJEuhhVFNz7bCg8FqMa4AaRqlMHL&s=10",
+      "regular_price": 1199,
+      "sale_price": 999
+    },
+    {
+      "id": 7,
+      "name": "Striped Cotton T-Shirt",
+      "brand": "Trendy",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy2galtw_kLVREPAY_PEOhPPVDiwEwPCecsvjnIAx4Rd7evK-dsHp1TPU&s=10",
+      "regular_price": 999,
+      "sale_price": 849
+    },
+    {
+      "id": 8,
+      "name": "Sports Dry Fit T-Shirt",
+      "brand": "ActivePro",
+      "category": "T-Shirt",
+      "image": "https://wrogn.com/cdn/shop/files/WUTS1214S_1.jpg?v=1754396693",
+      "regular_price": 1499,
+      "sale_price": 1299
+    },
+    {
+      "id": 9,
+      "name": "Printed Casual T-Shirt",
+      "brand": "Young Fashion",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMoPtmSY8ONr6j3jdcjmJME53oOkrwQTYUxudqKpN6Yf1hyGasi-_FvYI&s=10",
+      "regular_price": 899,
+      "sale_price": 699
+    },
+    {
+      "id": 10,
+      "name": "Premium Basic T-Shirt",
+      "brand": "Gentle Wear",
+      "category": "T-Shirt",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPkg1kFDq0L0eygN4S18ApsE-2vD0mJEuhhVFNz7bCg8FqMa4AaRqlMHL&s=10",
+      "regular_price": 1099,
+      "sale_price": 949
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +133,7 @@ class _ProductScreenState extends State<ProductScreen> {
         ],
       ),
        body: ListView.builder(
-         itemCount: 10,
+         itemCount: p.length,
            itemBuilder: (context, index) {
              return Card(
                child: SizedBox(
@@ -54,7 +147,8 @@ class _ProductScreenState extends State<ProductScreen> {
                        decoration: BoxDecoration(
                            image: DecorationImage(
                                fit: BoxFit.fill,
-                               image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy2galtw_kLVREPAY_PEOhPPVDiwEwPCecsvjnIAx4Rd7evK-dsHp1TPU&s=10"))
+                               image: NetworkImage("${p[index]["image"]}")
+                           )
                        ),
                      ),
                      SizedBox(width: 2,),
@@ -62,7 +156,7 @@ class _ProductScreenState extends State<ProductScreen> {
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
                          Text(
-                           "T-Shirt For Men",
+                           "${p[index]["name"]}",
                            style: TextStyle(
                                color: Colors.black,
                                fontSize: 24,
@@ -74,7 +168,7 @@ class _ProductScreenState extends State<ProductScreen> {
                          Row(
                            children: [
                              Text(
-                               "Brand : Easy",
+                               "${p[index]["brand"]}",
                                style: TextStyle(
                                    color: Colors.lightGreen,
                                    fontSize: 15,
@@ -84,7 +178,7 @@ class _ProductScreenState extends State<ProductScreen> {
                              ),
                              SizedBox(width: 25,),
                              Text(
-                               "Category : T-Shirt",
+                               "${p[index]["category"]}",
                                style: TextStyle(
                                    color: Colors.lightGreen,
                                    fontSize: 15,
@@ -98,7 +192,7 @@ class _ProductScreenState extends State<ProductScreen> {
                          Row(
                            children: [
                              Text(
-                               "Sale_rice : 400tk",
+                               "Discount_price: ${p[index]["sale_price"]}",
                                style: TextStyle(
                                    color: Colors.black,
                                    fontSize: 12,
@@ -108,12 +202,13 @@ class _ProductScreenState extends State<ProductScreen> {
                              ),
                              SizedBox(width: 15,),
                              Text(
-                               "Regular_price : 500tk",
+                               "Regular_price : ${p[index]["regular_price"]}",
                                style: TextStyle(
                                    color: Colors.black,
                                    fontSize: 12,
                                    fontWeight: FontWeight.bold,
-                                   fontStyle: FontStyle.italic
+                                   fontStyle: FontStyle.italic,
+                                   decoration: TextDecoration.lineThrough
                                ),
                              ),
                            ],
