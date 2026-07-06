@@ -9,6 +9,7 @@ class TextFieldScreen extends StatefulWidget {
 class _TextFieldScreenState extends State<TextFieldScreen> {
 
   TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,9 +55,9 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
               child: TextField(
                 controller: email,
                 keyboardType: TextInputType.text,
-                onChanged: (c) {
-                  print("$c");
-                },
+                // onChanged: (c) {
+                //   print("$c");
+                // },
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email),
                   labelText: "Enter Your E-Mail",
@@ -83,6 +84,7 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
               child: TextField(
+                controller: password,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_clock),
                     labelText: "Enter Your PassWord",
@@ -107,7 +109,19 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
               ),
             ),
 
+            ElevatedButton(
+                onPressed: () {
+                  // print("${email.text}");
+                  // print("${password.text}");
 
+                  if(email.text == "t@gmail.com" && password.text=="12345"){
+                    print("Login Succesfull");
+                  }else{
+                    print("Invalid Input");
+                  }
+                },
+                child: Text("Button")
+            )
           ],
         ),
       ),
