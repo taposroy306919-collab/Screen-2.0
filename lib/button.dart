@@ -81,6 +81,21 @@ class _ButtonScreenState extends State<ButtonScreen> {
                     },
                     icon: Icon(Icons.add)
                 ),
+                GestureDetector(
+                  onTap: () {
+                    count=count+10;
+                    setState(() {
+                    });
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ),
               ],
             ),
             Divider(),
