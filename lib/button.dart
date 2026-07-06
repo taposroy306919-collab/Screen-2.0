@@ -50,12 +50,63 @@ class _ButtonScreenState extends State<ButtonScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("$count", style: TextStyle(fontSize: 35),),
-            ElevatedButton(
-                onPressed: () {
-                  count++;
-                  setState(() {}); // Screen Refresh
-                },
-                child: Text("Log In")
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 10,
+              children: [
+                InkWell(
+                  onTap: () {
+                    count=count+10;
+                    setState(() {
+                    });
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {
+                      count++;
+                      setState(() {});
+                    },
+                    onLongPress: () {
+                      count+=4;
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.add)
+                ),
+              ],
+            ),
+            Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 10,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      count++;
+                      setState(() {}); // Screen Refresh
+                    },
+                    onLongPress: () {
+                      count += 2;
+                      setState(() {});
+                    },
+                    child: Text("+")
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      count++;
+                      setState(() {}); // Screen Refresh
+                    },
+                    child: Text("-")
+                ),
+              ],
             )
           ],
         ),
