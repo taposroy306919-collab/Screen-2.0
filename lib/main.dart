@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:app7/button.dart';
 
 import 'grid_view.dart';
+import 'gridview_builder.dart';
 
 
 
@@ -14,7 +15,7 @@ void main(){
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GridViewScreen(),
+      home: GridviewBuilderScreen(),
     ),
   );
 }
