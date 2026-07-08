@@ -175,7 +175,7 @@ class _GridviewBuilderScreenState extends State<GridviewBuilderScreen> {
       body: GridView.builder(
         itemCount: fruits.length,
         //physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(15),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           crossAxisSpacing: 10,
@@ -187,118 +187,128 @@ class _GridviewBuilderScreenState extends State<GridviewBuilderScreen> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            elevation: 4,
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            //elevation: 4,
+            //clipBehavior: Clip.antiAlias,
+            child: Stack(
+              clipBehavior: Clip.none,
               children: [
-                Container(
-                  height: 100,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(12),
-                    ),
-                    image: DecorationImage(
-                      image: NetworkImage("${fruits[index]["image"]},"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                //Text("${fruits[index]["name"]},", overflow: TextOverflow.ellipsis, )
-                Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${fruits[index]["name"]},",
-                        overflow: TextOverflow.ellipsis,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(12),
+                        ),
+                        image: DecorationImage(
+                          image: NetworkImage("${fruits[index]["image"]},"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    ),
+                    //Text("${fruits[index]["name"]},", overflow: TextOverflow.ellipsis, )
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "৳ ${fruits[index]["Sale_price"]}",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
-                            ),
+                            "${fruits[index]["name"]},",
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          SizedBox(width: 25,),
-                          Text(
-                              "৳ ${fruits[index]["Reg_price"]}",
-                            style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              color: Colors.grey,
-                            ),
-                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "৳ ${fruits[index]["Sale_price"]}",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              SizedBox(width: 25,),
+                              Text(
+                                "৳ ${fruits[index]["Reg_price"]}",
+                                style: TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  color: Colors.grey,
+                                ),
+                              ),
 
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.blue, // Border color
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Description",
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+
+                                Icon(Icons.keyboard_arrow_down),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 3),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue, // Button color
+                                  foregroundColor: Colors.white, // Text/Icon color
+                                ),
+                                child: Text("ADD to Card")
+                            ),
+                          )
                         ],
                       ),
-                      SizedBox(height: 5),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //
-                      //   children: [
-                      //
-                      //     Text(
-                      //       "Description",
-                      //       style: TextStyle(
-                      //         fontSize: 16,
-                      //         fontWeight: FontWeight.w500,
-                      //       ),
-                      //     ),
-                      //
-                      //     Icon(Icons.keyboard_arrow_down),
-                      //   ],
-                      // ),
-                      // SizedBox(height: 5),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue, // Border color
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Description",
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-
-                            Icon(Icons.keyboard_arrow_down),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 3),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue, // Button color
-                              foregroundColor: Colors.white, // Text/Icon color
-                            ),
-                            child: Text("ADD to Card")
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+                Positioned(
+                  top: -10,
+                  left: 8,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 5,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      "20% OFF",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                )
               ],
-            ),
+            )
           );
-        },
+         },
       ),
     );
   }
