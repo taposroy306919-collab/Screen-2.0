@@ -11,6 +11,7 @@ class SwitchScreen extends StatefulWidget {
 
 class _SwitchScreenState extends State<SwitchScreen> {
   bool switchValue = true;
+  double sliderValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,18 @@ class _SwitchScreenState extends State<SwitchScreen> {
                 setState(() {});
               },
             ),
+
+            Slider(
+              label: "$sliderValue",
+              value: sliderValue,
+              onChanged: (value) {
+                sliderValue = value;
+                setState(() {});
+              },
+            ),
+
+
+
           ],
         ),
       ),
