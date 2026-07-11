@@ -64,14 +64,35 @@ class _SwitchScreenState extends State<SwitchScreen> {
               },
             ),
 
-            Slider(
-              label: "$sliderValue",
-              value: sliderValue,
-              onChanged: (value) {
-                sliderValue = value;
-                setState(() {});
-              },
-            ),
+            // Slider(
+            //   label: "$sliderValue",
+            //   value: sliderValue,
+            //   onChanged: (value) {
+            //     sliderValue = value;
+            //     setState(() {});
+            //   },
+            // ),
+
+            Row(
+              children: [
+                Expanded(
+                  child: Slider(
+                    value: sliderValue,
+                    min: 0,
+                    max: 100,
+                    onChanged: (value) {
+                      setState(() {
+                        sliderValue = value;
+                      });
+                    },
+                  ),
+                ),
+                Text(
+                  sliderValue.toStringAsFixed(0),
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ],
+            )
 
 
 
