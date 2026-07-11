@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ class SwitchScreen extends StatefulWidget {
 }
 
 class _SwitchScreenState extends State<SwitchScreen> {
-
   bool switchValue = true;
 
   @override
@@ -31,16 +29,16 @@ class _SwitchScreenState extends State<SwitchScreen> {
             padding: EdgeInsets.only(bottom: 5),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(15)
+              borderRadius: BorderRadius.circular(15),
             ),
             child: TextField(
               decoration: InputDecoration(
                 hintText: "Search",
                 border: InputBorder.none,
-                icon: Icon(Icons.search)
+                icon: Icon(Icons.search),
               ),
             ),
-          )
+          ),
         ],
       ),
       body: Center(
@@ -51,11 +49,19 @@ class _SwitchScreenState extends State<SwitchScreen> {
               onChanged: (value) {
                 log("$value");
                 switchValue = value;
-                setState(() {
-
-                });
+                setState(() {});
               },
-            )
+            ),
+
+            SwitchListTile(
+              title: Text("Dark/White Mood"),
+              subtitle: Text("ON/OFF Mood"),
+              value: switchValue,
+              onChanged: (v) {
+                switchValue = v;
+                setState(() {});
+              },
+            ),
           ],
         ),
       ),
