@@ -1,6 +1,7 @@
 import 'package:app7/my_screen.dart';
 import 'package:app7/product_screen.dart';
 import 'package:app7/sign_up.dart';
+import 'package:app7/switch.dart';
 import 'package:app7/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:app7/button.dart';
@@ -15,7 +16,7 @@ void main(){
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GridviewBuilderScreen(),
+      home: SwitchScreen(),
     ),
   );
 }
